@@ -1,5 +1,5 @@
 {
-  "name": "how-are-you",
+  "name": "energyFundApp",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -32,8 +32,8 @@
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
     "prop-types": "^15.7.2",
-    "react": "16.11.0",
-    "react-native": "0.62.2",
+    "react": "17.0.2",
+    "react-native": "0.68.2",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-localization": "^2.1.6",
     "react-native-localize": "^1.4.0",
@@ -43,25 +43,25 @@
     "react-native-svg": "^13.8.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/runtime": "^7.9.6",
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@react-native-community/eslint-config": "^1.1.0",
-    "babel-jest": "^26.0.1",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.6.3",
     "babel-plugin-inline-import": "^3.0.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "husky": "^4.2.5",
-    "jest": "^26.0.1",
+    "jest": "^26.6.3",
     "lint-staged": "^10.2.4",
-    "metro-react-native-babel-preset": "^0.59.0",
+    "metro-react-native-babel-preset": "^0.67.0",
     "prettier": "^2.0.5",
-    "react-test-renderer": "16.11.0"
+    "react-test-renderer": "17.0.2"
   },
   "jest": {
     "preset": "react-native"
