@@ -1,41 +1,68 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-import Feelings from '../screens/Feelings';
-import MyFeeling from '../screens/MyFeeling';
 
 import strings from '../strings';
 
 import { darkPurple, white } from '../components/Colors';
+import AuthContext from '../contexts/AuthContext';
+
+import Home from '../screens/Home';
+import Login from '../screens/Login';
+import Signup from '../screens/SignUp';
 
 const Stack = createStackNavigator();
 
-const defaultOptions = {
+const defaultStackOptions = {
   headerStyle: {
     backgroundColor: darkPurple,
   },
   headerTintColor: white,
+  headerShown: false,
+};
+const withAuthStackOptions = {
+  headerStyle: {
+    backgroundColor: darkPurple,
+  },
+  headerTintColor: white,
+  headerShown: false,
 };
 
-const Navigation = () => (
-  <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Feelings"
-        component={Feelings}
-        options={{ title: strings.feelings, ...defaultOptions }}
-      />
-      <Stack.Screen
-        name="MyFeeling"
-        component={MyFeeling}
-        options={{
-          title: strings.my_feeling,
-          ...defaultOptions,
-        }}
-      />
-    </Stack.Navigator>
-  </NavigationContainer>
+const WithAuthStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="Home"
+      component={Home}
+      options={{ title: strings.home, ...withAuthStackOptions }}
+    />
+  </Stack.Navigator>
 );
+
+const DefaulStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="Login"
+      component={Login}
+      options={{ title: strings.home, ...defaultStackOptions }}
+    />
+    <Stack.Screen
+      name="Signup"
+      component={Signup}
+      options={{ title: strings.home, ...defaultStackOptions }}
+    />
+  </Stack.Navigator>
+);
+
+const Navigation = () => {
+  const useAuthContext = useContext(AuthContext);
+
+  const { isAuth } = useAuthContext;
+
+  return (
+    <NavigationContainer>
+      {isAuth ? <WithAuthStack /> : <DefaulStack />}
+    </NavigationContainer>
+  );
+};
 
 export default Navigation;

@@ -1,12 +1,13 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import { ApolloProvider } from '@apollo/react-hooks';
-import client from './apollo/client';
+
 import Navigation from './navigation';
 
+import Contexts from './contexts';
+
 const App = () => (
-  <ApolloProvider client={client}>
+  <Contexts>
     <Navigation />
-  </ApolloProvider>
+  </Contexts>
 );
 export default App;

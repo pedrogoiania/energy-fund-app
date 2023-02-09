@@ -10,6 +10,7 @@ const strings = {
 
   feelings: 'Feelings',
   my_feeling: 'My Feeling',
+  home: 'Home',
 };
 
 export default strings;
