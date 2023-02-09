@@ -7,7 +7,12 @@ import {
 import Icons from '../../assets/icons';
 
 const Input = ({
-  title, placeholder, value, onChangeText, secureTextEntry,
+  title,
+  placeholder,
+  value,
+  onChangeText,
+  secureTextEntry,
+  keyboardType,
 }) => {
   const [showEntry, setShowEntry] = useState(false);
   return (
@@ -18,7 +23,6 @@ const Input = ({
           flexDirection: 'row',
           padding: 10,
           backgroundColor: '#F4F4F4',
-          // backgroundColor: '#A0A0A0',
           height: 48,
           alignItems: 'center',
           borderRadius: 4,
@@ -29,7 +33,7 @@ const Input = ({
           placeholder={placeholder}
           value={value}
           onChangeText={onChangeText}
-          keyboardType="email-address"
+          keyboardType={keyboardType}
           secureTextEntry={secureTextEntry && !showEntry}
           style={{ width: '100%', height: 48 }}
         />
