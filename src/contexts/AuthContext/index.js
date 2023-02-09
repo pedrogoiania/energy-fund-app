@@ -1,7 +1,7 @@
 import React, { createContext, useState, useMemo } from 'react';
 
 const DEFAULT_VALUE = {
-  isAuth: false,
+  isAuth: true,
   setIsAuth: () => {},
 };
 

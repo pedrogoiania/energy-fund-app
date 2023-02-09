@@ -2,10 +2,10 @@ import React from 'react';
 import { Text } from 'react-native';
 import BaseView from '../../components/BaseView';
 
-const Home = () => (
+const Trade = () => (
   <BaseView style={{ flex: 1 }}>
-    <Text>Home</Text>
+    <Text>Trade</Text>
   </BaseView>
 );
 
-export default Home;
+export default Trade;

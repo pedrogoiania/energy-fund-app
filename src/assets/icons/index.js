@@ -23,7 +23,7 @@ const ArrowLeftIcon = () => <SvgXml width="24" height="24" xml={arrowSvg} />;
 
 const CircleIcon = () => <SvgXml width="24" height="24" xml={circleSvg} />;
 const HomeIcon = () => <SvgXml width="24" height="24" xml={homeSvg} />;
-const ArrowIcon = () => <SvgXml width="24" height="24" xml={arrowsSvg} />;
+const ArrowsIcon = () => <SvgXml width="24" height="24" xml={arrowsSvg} />;
 
 const CircleSelectedIcon = () => (
   <SvgXml width="24" height="24" xml={circleSelectedSvg} />
@@ -41,7 +41,7 @@ export default {
   ArrowLeftIcon,
   CircleIcon,
   HomeIcon,
-  ArrowIcon,
+  ArrowsIcon,
   CircleSelectedIcon,
   HomeSelectedIcon,
   ArrowSelectedIcon,
