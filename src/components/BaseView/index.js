@@ -7,39 +7,56 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+import { white } from '../Colors';
 
 const BaseView = ({
   children,
   leftButtonComponent,
   rightButtonComponent,
   centerComponent,
+  footerComponent,
   scrollable,
 }) => (
-  <SafeAreaView style={{ flex: 1 }}>
+  <SafeAreaView style={{ flex: 1, backgroundColor: white }}>
     <View
       style={{
-        flexDirection: 'row',
-        height: 55,
         borderBottomColor: '#f4f4f4',
         borderBottomWidth: 1,
         borderStyle: 'solid',
-        justifyContent: 'space-between',
-        paddingHorizontal: 20,
+        paddingBottom: footerComponent ? 15 : 0,
       }}
     >
-      {leftButtonComponent && (
-        <View style={{ flex: 1 }}>{leftButtonComponent}</View>
-      )}
-      {rightButtonComponent && (
-        <View
-          style={{
-            flex: 8,
-          }}
-        >
-          {rightButtonComponent}
+      <View
+        style={{
+          flexDirection: 'row',
+          height: 55,
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          paddingHorizontal: 20,
+        }}
+      >
+        {leftButtonComponent && (
+          <View style={{ flex: 1 }}>{leftButtonComponent}</View>
+        )}
+
+        <View style={{ flex: 8, alignItems: 'center' }}>
+          {centerComponent && centerComponent}
+        </View>
+        {rightButtonComponent && (
+          <View
+            style={{
+              flex: 1,
+            }}
+          >
+            {rightButtonComponent}
+          </View>
+        )}
+      </View>
+      {footerComponent && (
+        <View style={{ paddingHorizontal: 20, justifyContent: 'center' }}>
+          {footerComponent}
         </View>
       )}
-      {centerComponent && <View style={{ flex: 1 }}>{centerComponent}</View>}
     </View>
     <KeyboardAvoidingView
       style={{ flex: 1 }}
