@@ -61,7 +61,7 @@ const HeaderFooterComponent = () => (
             </View>
           </View>
         </View>
-        <Ribbon />
+        <Ribbon showIcon selected title="Earn Rewards" />
       </View>
     </View>
   </View>

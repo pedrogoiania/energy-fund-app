@@ -76,7 +76,7 @@ const ChartCard = ({ onPress, title, item }) => {
               backgroundGradientFrom: 'white',
               backgroundGradientTo: 'white',
               decimalPlaces: 2, // optional, defaults to 2dp
-              color: () => darkPurple,
+              color: () => green,
 
               propsForDots: {
                 r: '0',

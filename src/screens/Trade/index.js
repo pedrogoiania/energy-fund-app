@@ -1,10 +1,12 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { View } from 'react-native';
 import Icons from '../../assets/icons';
 import BaseView from '../../components/BaseView';
+import ChartFull from '../../components/ChartFull';
 import { gray, green } from '../../components/Colors';
 import IconButton from '../../components/IconButton';
 import Text from '../../components/Text';
+import Ribbon from '../../components/Ribbon';
 import TradeContext from '../../contexts/TradeContext';
 
 const BackButton = ({ onPress }) => (
@@ -18,10 +20,10 @@ const CenterComponent = ({ title, code }) => (
   </View>
 );
 
-const Trade = ({ route, navigation }) => {
-  // const { params } = route;
+const filtersData = ['1h', '1d', '1w', '1m', '1y', 'All'];
 
-  // let trade = null;
+const Trade = ({ route, navigation }) => {
+  const [filterSelected, setFilterSelected] = useState('1h');
 
   const useTradeContext = useContext(TradeContext);
   const { selectedTrade, setSelectedTrade } = useTradeContext;
@@ -30,15 +32,18 @@ const Trade = ({ route, navigation }) => {
     navigation.goBack();
   };
 
-  useEffect(() => {
-    console.log(console.log('route effect: ', route));
+  const selectFilter = (item) => {
+    setFilterSelected(item);
+  };
 
+  useEffect(() => {
     if (route?.params?.trade) {
       setSelectedTrade(route.params.trade);
     }
   }, [route?.params?.trade]);
   return (
     <BaseView
+      scrollable
       leftButtonComponent={<BackButton onPress={goBack} />}
       centerComponent={
         selectedTrade && (
@@ -50,7 +55,6 @@ const Trade = ({ route, navigation }) => {
       }
       style={{ flex: 1 }}
     >
-
       {selectedTrade && (
         <View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -81,6 +85,19 @@ const Trade = ({ route, navigation }) => {
             </View>
 
             <Text.Bold style={{ fontSize: 24 }}>2022</Text.Bold>
+          </View>
+          <ChartFull />
+
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            {filtersData.map((item) => (
+              <Ribbon
+                onPress={selectFilter}
+                selected={filterSelected === item}
+                key={item}
+                showIcon={false}
+                title={item}
+              />
+            ))}
           </View>
         </View>
       )}
