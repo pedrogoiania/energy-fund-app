@@ -20,6 +20,8 @@ import alertSvg from './alert.svg';
 import coinSvg from './coin.svg';
 import windSvg from './wind.svg';
 
+import statisticsSvg from './statistics.svg';
+
 const EyeIcon = () => <SvgXml width="24" height="24" xml={eyeSvg} />;
 
 const EmptyCheckboxIcon = () => (
@@ -54,6 +56,8 @@ const CoinIcon = () => <SvgXml width="20" height="20" xml={coinSvg} />;
 
 const WindIcon = () => <SvgXml width="12" height="12" xml={windSvg} />;
 
+const StatisticsIcon = () => <SvgXml width="94" height="87" xml={statisticsSvg} />;
+
 export default {
   EyeIcon,
   EmptyCheckboxIcon,
@@ -68,4 +72,5 @@ export default {
   AlertIcon,
   CoinIcon,
   WindIcon,
+  StatisticsIcon,
 };

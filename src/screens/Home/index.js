@@ -9,6 +9,7 @@ import Text from '../../components/Text';
 import { green } from '../../components/Colors';
 import Ribbon from '../../components/Ribbon';
 import ChartCard from '../../components/ChartCard';
+import Banner from '../../components/Banner';
 
 const LeftButton = () => <IconButton iconComponent={<Icons.ProfileIcon />} />;
 
@@ -16,7 +17,7 @@ const RightButton = () => <IconButton iconComponent={<Icons.AlertIcon />} />;
 
 const CenterComponent = () => (
   <View>
-    <Text.Bold>Account: $1,457.23</Text.Bold>
+    <Text.Bold>Account: $ 1,457.23</Text.Bold>
   </View>
 );
 
@@ -74,12 +75,14 @@ const Home = () => (
     centerComponent={<CenterComponent />}
     footerComponent={<HeaderFooterComponent />}
     style={{ flex: 1 }}
+    scrollable
   >
     <View style={{ marginBottom: 20 }}>
       <Text.Title>Funds</Text.Title>
     </View>
 
     <FlatList
+      style={{ flex: 1, maxHeight: 180 }}
       data={[1, 2, 3]}
       showsHorizontalScrollIndicator={false}
       ItemSeparatorComponent={() => <View style={{ width: 15 }} />}
@@ -87,6 +90,14 @@ const Home = () => (
       renderItem={() => <ChartCard />}
       keyExtractor={(item) => String(item)}
     />
+
+    <View style={{ paddingVertical: 20 }}>
+      <Banner
+        title="Learn more about carbon credits"
+        subtitle="Check out our top tips!"
+        image={<Icons.StatisticsIcon />}
+      />
+    </View>
   </BaseView>
 );
 
