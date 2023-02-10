@@ -61,44 +61,73 @@ const HeaderFooterComponent = () => (
             </View>
           </View>
         </View>
-
         <Ribbon />
       </View>
     </View>
   </View>
 );
 
-const Home = () => (
-  <BaseView
-    leftButtonComponent={<LeftButton />}
-    rightButtonComponent={<RightButton />}
-    centerComponent={<CenterComponent />}
-    footerComponent={<HeaderFooterComponent />}
-    style={{ flex: 1 }}
-    scrollable
-  >
-    <View style={{ marginBottom: 20 }}>
-      <Text.Title>Funds</Text.Title>
-    </View>
+const trades = [
+  {
+    id: 1,
+    title: 'Wind Fund',
+    code: 'WFND',
+  },
+  {
+    id: 2,
+    title: 'Solar Fund',
+    code: 'SFND',
+  },
+  {
+    id: 3,
+    title: 'Nature Fund',
+    code: 'NFND',
+  },
+];
 
-    <FlatList
-      style={{ flex: 1, maxHeight: 180 }}
-      data={[1, 2, 3]}
-      showsHorizontalScrollIndicator={false}
-      ItemSeparatorComponent={() => <View style={{ width: 15 }} />}
-      horizontal
-      renderItem={() => <ChartCard />}
-      keyExtractor={(item) => String(item)}
-    />
+const Home = ({ navigation }) => {
+  const navigateToFoundDetail = (item) => {
+    navigation.navigate('Trade', { trade: item });
+  };
 
-    <View style={{ paddingVertical: 20 }}>
-      <Banner
-        title="Learn more about carbon credits"
-        subtitle="Check out our top tips!"
-        image={<Icons.StatisticsIcon />}
+  return (
+    <BaseView
+      leftButtonComponent={<LeftButton />}
+      rightButtonComponent={<RightButton />}
+      centerComponent={<CenterComponent />}
+      footerComponent={<HeaderFooterComponent />}
+      style={{ flex: 1 }}
+      scrollable
+    >
+      <View style={{ marginBottom: 20 }}>
+        <Text.Title>Funds</Text.Title>
+      </View>
+
+      <FlatList
+        style={{ flex: 1, maxHeight: 180 }}
+        data={trades}
+        showsHorizontalScrollIndicator={false}
+        ItemSeparatorComponent={() => <View style={{ width: 15 }} />}
+        horizontal
+        renderItem={({ item }) => (
+          <ChartCard
+            item={item}
+            title={item.title}
+            onPress={navigateToFoundDetail}
+          />
+        )}
+        keyExtractor={(item) => String(item.id)}
       />
-    </View>
-  </BaseView>
-);
+
+      <View style={{ paddingVertical: 20 }}>
+        <Banner
+          title="Learn more about carbon credits"
+          subtitle="Check out our top tips!"
+          image={<Icons.StatisticsIcon />}
+        />
+      </View>
+    </BaseView>
+  );
+};
 
 export default Home;

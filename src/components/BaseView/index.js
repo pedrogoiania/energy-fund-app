@@ -42,15 +42,13 @@ const BaseView = ({
         <View style={{ flex: 8, alignItems: 'center' }}>
           {centerComponent && centerComponent}
         </View>
-        {rightButtonComponent && (
-          <View
-            style={{
-              flex: 1,
-            }}
-          >
-            {rightButtonComponent}
-          </View>
-        )}
+        <View
+          style={{
+            flex: 1,
+          }}
+        >
+          {rightButtonComponent && rightButtonComponent}
+        </View>
       </View>
       {footerComponent && (
         <View style={{ paddingHorizontal: 20, justifyContent: 'center' }}>

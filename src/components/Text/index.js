@@ -10,8 +10,8 @@ const Text = ({ children, style, numberOfLines }) => (
   </RNText>
 );
 
-const Title = ({ children, style }) => (
-  <Text style={{ fontSize: 18, fontWeight: '600', ...style }}>{children}</Text>
+const Title = ({ children, style, bold }) => (
+  <Text style={{ fontSize: 18, fontWeight: bold ? '800' : '400', ...style }}>{children}</Text>
 );
 
 const Underline = ({ children, style }) => (
