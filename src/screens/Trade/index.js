@@ -43,7 +43,7 @@ const Trade = ({ route, navigation }) => {
   }, [route?.params?.trade]);
   return (
     <BaseView
-      scrollable
+      scrollable={!!selectedTrade}
       leftButtonComponent={<BackButton onPress={goBack} />}
       centerComponent={
         selectedTrade && (
@@ -53,8 +53,21 @@ const Trade = ({ route, navigation }) => {
           />
         )
       }
-      style={{ flex: 1 }}
+      // style={{ flex: 1 }}
     >
+      {!selectedTrade && (
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Text.Bold style={{ fontSize: 24 }}>
+            Select a trade to view detail
+          </Text.Bold>
+        </View>
+      )}
       {selectedTrade && (
         <View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
